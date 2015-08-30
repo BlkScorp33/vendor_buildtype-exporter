@@ -20,6 +20,23 @@ echo "Exiting .... "
 sleep 2
 return
 fi
-clear
-echo "Now choose your device/variant lunch combo ...."
-lunch
+while read -p "Start an immediate build? [Y/y or N/n]" input2
+do
+case "$input2" in
+  Y|y)
+    echo "Choose your device/variant lunch combo ...."
+    brunch
+    break
+    ;;
+  N|n)
+    clear
+    lunch
+    break
+    ;;
+  *)
+  	echo
+  	echo "Invalid try again!"
+  	echo
+  	;;
+esac
+done
